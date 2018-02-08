@@ -1,3 +1,9 @@
 BASEDIR=$(dirname "$0")
-crontab -l | { cat; echo "0 1 * * * $BASEDIR/backup.sh"; } | crontab -
+if [ "$BASEDIR" == "." ]; then
+        BASEDIR=""
+else
+        BASEDIR="/$BASEDIR"
+fi
+crontab -l | { cat; echo "0 1 * * * $PWD$BASEDIR/backup.sh"; } | crontab -
 crontab -l
+
