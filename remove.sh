@@ -1,3 +1,3 @@
-crontab -l | grep -v 'ServerBackup'  | crontab -
+crontab -l | grep -v 'ServerBackup/backup.sh'  | crontab -
 crontab -l
 
